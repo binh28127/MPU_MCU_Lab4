@@ -17,7 +17,6 @@ void SCH_Init(void) {
 		SCH_Delete_Task(i);
 	}
 	current_tasks = 0;
-	// Error
 }
 
 void SCH_Add_Task(void (*pFunction)(void), const uint32_t DELAY, const uint32_t PERIOD) {
@@ -30,9 +29,6 @@ void SCH_Add_Task(void (*pFunction)(void), const uint32_t DELAY, const uint32_t 
 		SCH_tasks_G[current_tasks].TaskID = current_tasks;
 
 		current_tasks++;
-
-	} else {
-		// Error
 	}
 }
 
@@ -51,7 +47,6 @@ void SCH_Dispatch_Tasks(void) {
 			}
 		}
 	}
-	// report...
 }
 
 void SCH_Update(void) {
@@ -70,28 +65,22 @@ void SCH_Update(void) {
 }
 
 void SCH_Delete_Task(const uint32_t TASK_INDEX) {
-	if (!SCH_tasks_G[TASK_INDEX].pTask) {
-		// No task at this index
-		// ERROR
+	// Shift the tasks right of the TASK_INDEX to the left
+	for (uint32_t i = TASK_INDEX; i < current_tasks - 1; i++) {
 
-	} else {
-		// Shift the tasks right of the TASK_INDEX to the left
-		for (uint32_t i = TASK_INDEX; i < current_tasks - 1; i++) {
-
-			SCH_tasks_G[i].pTask = SCH_tasks_G[i + 1].pTask;
-			SCH_tasks_G[i].Delay = SCH_tasks_G[i + 1].Delay;
-			SCH_tasks_G[i].Period = SCH_tasks_G[i + 1].Period;
-			SCH_tasks_G[i].RunMe = SCH_tasks_G[i + 1].RunMe;
-			SCH_tasks_G[i].TaskID = SCH_tasks_G[i + 1].TaskID;
-		}
-
-		// Reset the TASK_INDEX location
-		SCH_tasks_G[current_tasks - 1].pTask = 0x0000;
-		SCH_tasks_G[current_tasks - 1].Delay = 0;
-		SCH_tasks_G[current_tasks - 1].Period = 0;
-		SCH_tasks_G[current_tasks - 1].RunMe = 0;
-		SCH_tasks_G[current_tasks - 1].TaskID = 0;
-
-		current_tasks--;
+		SCH_tasks_G[i].pTask = SCH_tasks_G[i + 1].pTask;
+		SCH_tasks_G[i].Delay = SCH_tasks_G[i + 1].Delay;
+		SCH_tasks_G[i].Period = SCH_tasks_G[i + 1].Period;
+		SCH_tasks_G[i].RunMe = SCH_tasks_G[i + 1].RunMe;
+		SCH_tasks_G[i].TaskID = SCH_tasks_G[i + 1].TaskID;
 	}
+
+	// Reset the TASK_INDEX location
+	SCH_tasks_G[current_tasks - 1].pTask = 0x0000;
+	SCH_tasks_G[current_tasks - 1].Delay = 0;
+	SCH_tasks_G[current_tasks - 1].Period = 0;
+	SCH_tasks_G[current_tasks - 1].RunMe = 0;
+	SCH_tasks_G[current_tasks - 1].TaskID = 0;
+
+	current_tasks--;
 }
