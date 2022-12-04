@@ -76,7 +76,7 @@ void SCH_Delete_Task(const uint32_t TASK_INDEX) {
 
 	} else {
 		// Shift the tasks right of the TASK_INDEX to the left
-		for (uint32_t i = TASK_INDEX; i < current_tasks; i++) {
+		for (uint32_t i = TASK_INDEX; i < current_tasks - 1; i++) {
 
 			SCH_tasks_G[i].pTask = SCH_tasks_G[i + 1].pTask;
 			SCH_tasks_G[i].Delay = SCH_tasks_G[i + 1].Delay;
@@ -86,11 +86,11 @@ void SCH_Delete_Task(const uint32_t TASK_INDEX) {
 		}
 
 		// Reset the TASK_INDEX location
-		SCH_tasks_G[current_tasks].pTask = 0x0000;
-		SCH_tasks_G[current_tasks].Delay = 0;
-		SCH_tasks_G[current_tasks].Period = 0;
-		SCH_tasks_G[current_tasks].RunMe = 0;
-		SCH_tasks_G[current_tasks].TaskID = 0;
+		SCH_tasks_G[current_tasks - 1].pTask = 0x0000;
+		SCH_tasks_G[current_tasks - 1].Delay = 0;
+		SCH_tasks_G[current_tasks - 1].Period = 0;
+		SCH_tasks_G[current_tasks - 1].RunMe = 0;
+		SCH_tasks_G[current_tasks - 1].TaskID = 0;
 
 		current_tasks--;
 	}
