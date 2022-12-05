@@ -72,7 +72,7 @@ void SCH_Delete_Task(const uint32_t TASK_INDEX) {
 		SCH_tasks_G[i].Delay = SCH_tasks_G[i + 1].Delay;
 		SCH_tasks_G[i].Period = SCH_tasks_G[i + 1].Period;
 		SCH_tasks_G[i].RunMe = SCH_tasks_G[i + 1].RunMe;
-		SCH_tasks_G[i].TaskID = SCH_tasks_G[i + 1].TaskID;
+		SCH_tasks_G[i].TaskID = SCH_tasks_G[i + 1].TaskID - 1;
 	}
 
 	// Reset the TASK_INDEX location
