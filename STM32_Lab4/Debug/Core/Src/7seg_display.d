@@ -1,6 +1,7 @@
-Core/Src/scheduler.o: ../Core/Src/scheduler.c ../Core/Inc/scheduler.h \
- ../Core/Inc/global.h ../Core/Inc/button_reading.h ../Core/Inc/global.h \
- ../Core/Inc/main.h ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
+Core/Src/7seg_display.o: ../Core/Src/7seg_display.c \
+ ../Core/Inc/7seg_display.h ../Core/Inc/global.h \
+ ../Core/Inc/button_reading.h ../Core/Inc/main.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h \
@@ -28,13 +29,11 @@ Core/Src/scheduler.o: ../Core/Src/scheduler.c ../Core/Inc/scheduler.h \
  ../Core/Inc/fsm_increasing_time.h ../Core/Inc/7seg_display.h \
  ../Core/Inc/LEDs_display.h
 
-../Core/Inc/scheduler.h:
+../Core/Inc/7seg_display.h:
 
 ../Core/Inc/global.h:
 
 ../Core/Inc/button_reading.h:
-
-../Core/Inc/global.h:
 
 ../Core/Inc/main.h:
 

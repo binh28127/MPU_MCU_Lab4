@@ -1,0 +1,11 @@
+7seg_display.c:16:6:display7SEG	16	static
+7seg_display.c:63:6:update7SEG	16	static
+7seg_display.c:93:6:updateBufferForIncTime	4	static
+7seg_display.c:124:6:SEG0_on	8	static
+7seg_display.c:130:6:SEG1_on	8	static
+7seg_display.c:136:6:SEG2_on	8	static
+7seg_display.c:142:6:SEG3_on	8	static
+7seg_display.c:148:6:run7SEG	8	static
+7seg_display.c:156:6:countDownTime	4	static
+7seg_display.c:226:6:updateBufferForMode1	4	static
+7seg_display.c:233:6:runCount	8	static

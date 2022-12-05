@@ -6,8 +6,7 @@
  */
 
 #include "scheduler.h"
-
-uint32_t TimerCycle = 10;
+#include "global.h"
 
 sTask SCH_tasks_G[SCH_MAX_TASKS];
 uint32_t current_tasks = 0;
@@ -23,8 +22,8 @@ void SCH_Add_Task(void (*pFunction)(void), const uint32_t DELAY, const uint32_t 
 	if (current_tasks < SCH_MAX_TASKS) {
 
 		SCH_tasks_G[current_tasks].pTask = pFunction;
-		SCH_tasks_G[current_tasks].Delay = DELAY / TimerCycle;
-		SCH_tasks_G[current_tasks].Period = PERIOD / TimerCycle;
+		SCH_tasks_G[current_tasks].Delay = DELAY / timerCycle;
+		SCH_tasks_G[current_tasks].Period = PERIOD / timerCycle;
 		SCH_tasks_G[current_tasks].RunMe = 0;
 		SCH_tasks_G[current_tasks].TaskID = current_tasks;
 
@@ -72,7 +71,7 @@ void SCH_Delete_Task(const uint32_t TASK_INDEX) {
 		SCH_tasks_G[i].Delay = SCH_tasks_G[i + 1].Delay;
 		SCH_tasks_G[i].Period = SCH_tasks_G[i + 1].Period;
 		SCH_tasks_G[i].RunMe = SCH_tasks_G[i + 1].RunMe;
-		SCH_tasks_G[i].TaskID = SCH_tasks_G[i + 1].TaskID;
+		SCH_tasks_G[i].TaskID = SCH_tasks_G[i + 1].TaskID - 1;
 	}
 
 	// Reset the TASK_INDEX location

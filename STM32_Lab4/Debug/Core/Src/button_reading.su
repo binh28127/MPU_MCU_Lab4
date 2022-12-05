@@ -1,0 +1,4 @@
+button_reading.c:15:5:isButtonPressed	16	static
+button_reading.c:23:6:setTimerForButton	16	static
+button_reading.c:27:6:fsm_button_processing	16	static
+button_reading.c:61:6:getKeyInput	16	static

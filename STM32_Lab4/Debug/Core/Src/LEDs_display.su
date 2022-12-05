@@ -1,0 +1,10 @@
+LEDs_display.c:10:6:red1_on	8	static
+LEDs_display.c:16:6:green1_on	8	static
+LEDs_display.c:22:6:amber1_on	8	static
+LEDs_display.c:28:6:red2_on	8	static
+LEDs_display.c:34:6:green2_on	8	static
+LEDs_display.c:40:6:amber2_on	8	static
+LEDs_display.c:46:6:LEDsDisplay	16	static
+LEDs_display.c:58:6:LEDsOn	8	static
+LEDs_display.c:62:6:LEDsOff	8	static
+LEDs_display.c:66:6:LEDsBlinking	8	static
